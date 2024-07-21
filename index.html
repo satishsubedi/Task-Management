@@ -35,7 +35,11 @@
       <h1 class="text-center">Task Management</h1>
       <div class="container">
         <!-- form -->
-        <form action="" class="border p-5">
+        <form
+          onsubmit="handleOnSubmit(this)"
+          action="javascript:void(0)"
+          class="border p-5"
+        >
           <div class="row g-3">
             <div class="col-md-7">
               <input
@@ -43,16 +47,19 @@
                 class="form-control"
                 placeholder="Text"
                 aria-label="Text"
-                name="text"
+                name="task"
+                id="task"
               />
             </div>
             <div class="col-md-2">
               <input
                 type="number"
+                min="0"
                 class="form-control"
                 placeholder="Hour"
                 aria-label="Last name"
                 name="hour"
+                id="hour"
               />
             </div>
             <div class="col-md-3">
@@ -66,21 +73,7 @@
             <table class="table border table-hover table-striped transparent">
               <h3 class="text-center">Task List</h3>
               <hr />
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td class="text-end">
-                    <button class="btn btn-danger">
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
-                    <button class="btn btn-success">
-                      <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody id="entryList"></tbody>
             </table>
           </div>
           <!-- Bad List table -->
@@ -88,29 +81,15 @@
             <table class="table border">
               <h3 class="text-center">Bad Task List</h3>
               <hr />
-              <tbody>
-                <tr>
-                  <td>1</td>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td class="text-end">
-                    <button class="btn btn-danger">
-                      <i class="fa-solid fa-trash"></i>
-                    </button>
-                    <button class="btn btn-warning">
-                      <i class="fa-solid fa-arrow-left"></i>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
+              <tbody id="badList"></tbody>
             </table>
             <div class="alert alert-light" role="alert">
-              You could saved = 10 hrs
+              You could saved = <span id="savedhours"> </span>hrs
             </div>
           </div>
         </div>
         <div class="alert alert-light" role="alert">
-          The total hours allocated = 10 hrs
+          The total hours allocated = <span id="allocatedhours"> </span>hrs
         </div>
         <!-- Alert -->
       </div>
